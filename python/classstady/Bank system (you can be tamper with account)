@@ -1,0 +1,36 @@
+class BankAccount:   
+      def __init__(self,name :str,amount :int,BankNumber :str):
+          self.name=name
+          self._amount=amount
+          self.BankNumber=BankNumber
+      def deposit(self,n):
+          if self._amount < 0:
+              print("入金が出来ませんでした")  
+          else:
+              self._amount += n  
+              print(f"{n}円が口座に入金されました")
+      def withdraw(self,n):
+                    if n > self._amount:
+              print("残高不足です")
+          elif n < 0:
+              print("出金が出来ませんでした")
+          else:
+              self._amount -= n
+              print(f"{n}円が口座から出金されました")
+      def show(self):
+          print(f"口座番号は{self.BankNumber}、名義は{self.name}、現在の残高は{self._amount}円です。")
+          
+num1 = BankAccount("a",1000,100)
+num2 = BankAccount("b",3500,101)
+num3 = BankAccount("c",12000,102)
+              
+num1.show()
+
+num1.withdraw(80)
+
+num1.show()
+
+
+num1._amount=10000
+
+num1.show()
